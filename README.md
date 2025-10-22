@@ -3,6 +3,7 @@
 Sistema para geração automática de **planos de aula personalizados** utilizando **Inteligência Artificial (Gemini 2.5 Flash)**, com armazenamento e autenticação via **Supabase**.
 
 Repositório oficial: [github.com/faamaral/ai-lesson-plans-generator](https://github.com/faamaral/ai-lesson-plans-generator)
+
 Link da Aplicação: [https://ai-lesson-plans-generator.vercel.app](https://ai-lesson-plans-generator.vercel.app/)
 
 ---
