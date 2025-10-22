@@ -1,7 +1,6 @@
 -- Lesson Plans table
 CREATE TABLE IF NOT EXISTS public.lesson_plans (
     id uuid PRIMARY KEY  default uuid_generate_v4(),
-    user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
     lesson_theme text NOT NULL, -- Tema da aula
     discipline text NOT NULL, -- Disciplina, (Ex: 'Português')
     grade text NOT NULL, -- Série / Ano
