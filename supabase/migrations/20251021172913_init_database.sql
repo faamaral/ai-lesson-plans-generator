@@ -1,7 +1,7 @@
 -- Lesson Plans table
 CREATE TABLE IF NOT EXISTS public.lesson_plans (
     id uuid PRIMARY KEY  default uuid_generate_v4(),
-    lesson_theme text NOT NULL, -- Tema da aula
+    theme text NOT NULL, -- Tema da aula
     discipline text NOT NULL, -- Disciplina, (Ex: 'Português')
     grade text NOT NULL, -- Série / Ano
     bncc_codes text NOT NULL, -- Codigos da Habilidade do BNCC

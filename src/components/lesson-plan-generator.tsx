@@ -243,7 +243,7 @@ export default function LessonPlanGenerator() {
                     </CardContent>
                 </Card>
             )}
-            [/* Footer */]
+            {/* Footer */}
             <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground pt-4">
                 <span>Powered By</span>
                 <div className="flex items-center gap-2">

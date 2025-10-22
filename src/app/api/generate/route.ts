@@ -1,13 +1,18 @@
 import { generateLessonPlan } from "@/lib/gemini";
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { Database } from "../../../../database.types";
-import { json } from "zod";
 import { GeneratedPlan } from "@/lib/interfaces/generatedPlan";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient<Database>(supabaseUrl!, supabaseKey!);
+const supabase = createClient(supabaseUrl!, supabaseKey!, {
+  auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+        // Configuração especial para usar o service_role no backend:
+        
+    },}
+);
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -35,7 +40,7 @@ export async function POST(req: NextRequest) {
               "assessment_rubric": "Critérios de avaliação para a professora"
             }
   Retorne apenas json valido em portugues`;
-  const outputJson = JSON.parse(generateLessonPlan(prompt)) as GeneratedPlan;
+  const outputJson = JSON.parse(await generateLessonPlan(prompt)) as GeneratedPlan;
   const { data, error: dbError } = await supabase.from('lesson_plans').insert([
     {
       discipline: discipline,
